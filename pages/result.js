@@ -3,7 +3,7 @@ import { ethers } from 'ethers'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
 import { useRouter } from 'next/router'
 import Web3Modal from 'web3modal'
-import { Button, Upload, message, Image } from 'antd'
+import { Button, Upload, message, Result } from 'antd'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import deepai from 'deepai'
 import req from '../utils/req'
@@ -30,10 +30,6 @@ export default function CreateItem() {
       <div style={{ marginTop: 8 }}>Upload</div>
     </div>
   )
-
-  useEffect(() => {
-    deepai.setApiKey('e3dcddd2-bf7a-4e34-810f-c7b49151803f')
-  }, [])
 
   function getBase64(img, callback) {
     const reader = new FileReader();
@@ -116,23 +112,6 @@ export default function CreateItem() {
       })
     }).catch(error=>console.log(error))
 
-    
-
-    // const { name, description, price } = formInput
-    // console.log(name,description,price,fileUrl)
-    // if (!name || !description || !price || !fileUrl) return
-    // /* first, upload to IPFS */
-    // const data = JSON.stringify({
-    //   name, description, image: fileUrl
-    // })
-    // try {
-    //   const added = await client.add(data)
-    //   const url = `https://ipfs.infura.io/ipfs/${added.path}`
-    //   /* after file is uploaded to IPFS, pass the URL to save it on Polygon */
-    //   createSale(url)
-    // } catch (error) {
-    //   console.log('Error uploading file: ', error)
-    // }  
   }
 
   async function createSale(url) {
@@ -189,54 +168,19 @@ export default function CreateItem() {
       alignItems:'center',
       
       }}>
-      <p style={{fontSize:'30px'}}>生成你的卡通头像NFT</p>
-      <p style={{marginTop:'15px',marginBottom:'45px'}}>立刻拥有全世界独一无二，只属于你的头像NFT</p>
-      <div style=
-        {{
-          display:'flex',
-          flexDirection:'column',
-          justifyContent: 'center',
-          alignItems:'center'
-        }}>
-        {/* <input 
-          placeholder="Asset Name"
-          className="mt-8 border rounded p-4"
-          onChange={e => updateFormInput({ ...formInput, name: e.target.value })}
+        <Result
+          status="success"
+          title="恭喜！您的Metavatar NFT创建成功"
+          // subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
+          extra={[
+            <Button key='0'  htmlType="submit" onClick={()=>{}} style={{marginRight:'40px',backgroundColor:'#9254DE', color:'white', width:'180px',height:'50px',borderRadius:'10px'}}>
+              查看详情
+            </Button>,
+            <Button key='1'  onClick={()=>router.push('/')} style={{borderWidth:'1px',borderColor:'#9254DE', color:'#9254DE', width:'180px',height:'50px',borderRadius:'10px'}}>
+              返回首页
+            </Button>,
+          ]}
         />
-        <textarea
-          placeholder="Asset Description"
-          className="mt-2 border rounded p-4"
-          onChange={e => updateFormInput({ ...formInput, description: e.target.value })}
-        />
-        <input
-          placeholder="Asset Price in Eth"
-          className="mt-2 border rounded p-4"
-          onChange={e => updateFormInput({ ...formInput, price: e.target.value })}
-        /> */}
-        {/* {
-          fileUrl && (
-            <img className="rounded mt-4" width="350" src={fileUrl} />
-          )
-        } */}
-        <Upload
-          name="avatar"
-          listType="picture-card"
-          style={{width:'400px',height:'400px'}}
-          showUploadList={false}
-          // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-          beforeUpload={beforeUpload}
-          onChange={handleChange}
-          id='trig'
-        
-        >
-          {fileUrl ? <Image src={fileUrl} alt="avatar" /> : uploadButton}
-        </Upload>
-        
-        <Button shape="round" onClick={createMarket} style={{backgroundColor:'#9254DE',width:'112px',
-              height:'60px',color:'white'}}>
-          上传头像
-        </Button>
-      </div>
     </div>
   )
 }

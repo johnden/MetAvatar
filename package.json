@@ -2,21 +2,24 @@
   "name": "polygon-next",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://rpc-mumbai.matic.today/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "static": "next build && next export",
     "lint": "next lint",
+    "export": "next export",
     "hardhat": "npx hardhat node",
     "deploy": "npx hardhat run scripts/deploy.js --network localhost"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@openzeppelin/contracts": "^4.2.0",
     "antd": "^4.16.13",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "chai": "^4.3.4",
     "deepai": "^1.0.17",
     "ethereum-waffle": "^3.4.0",
@@ -25,8 +28,11 @@
     "hardhat": "^2.4.1",
     "ipfs-http-client": "^50.1.2",
     "next": "11.0.1",
+    "next-compose-plugins": "^2.2.1",
+    "next-optimized-images": "^2.6.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-image": "^4.0.3",
     "web3modal": "^1.9.3"
   },
   "devDependencies": {

@@ -113,6 +113,17 @@
   margin-left: 0.5rem;
 }
 
+.content-container {
+  background-image: url("/img/Background.png");
+  min-height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.backgroungImg {
+  background-image: url('/public/images/mobile-image-hero-1.jpg');
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

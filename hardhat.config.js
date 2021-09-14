@@ -13,7 +13,8 @@ module.exports = {
     mumbai: {
       // Infura
       // url: `https://polygon-mumbai.infura.io/v3/33befc5e7a8a4ab492f276d73341073c`,
-      url: "https://rpc-mumbai.matic.today",
+      // url: "https://rpc-mumbai.matic.today",
+      url: "https://polygon-mumbai.infura.io/v3/1e9d95996aee4373a25d8e350d3d9949",
       accounts: ['df57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e']
     },
     matic: {
