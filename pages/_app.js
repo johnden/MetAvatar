@@ -65,7 +65,6 @@ async function checkMetaMask() {
 function Marketplace({ Component, pageProps }) {
   return (
     <div>
-      {/* <nav className="border-b p-6"> */}
         <Layout>
           <Header style={{backgroundColor:'white',height:'64px',zIndex:1}}>
             <Row gutter={[12, 12]} justify="space-between">
@@ -78,24 +77,19 @@ function Marketplace({ Component, pageProps }) {
               </Link>
               </Col>
               <Col span={12} style={{display:'flex', justifyContent:'flex-end', alignItems:'center'}}>
-                {/* <Link href="/">
-                  <a className="mr-6 text-pink-500">
-                    首页
-                  </a>
-                </Link> */}
                 <Link href="/dashboard">
                   <a className="mr-6 text-pink-500">
                     帮助
                   </a>
                 </Link>
-                <Button onClick={checkMetaMask}>
-                  钱包
+                <Button shape="round" style={{ }} onClick={checkMetaMask}>
+                  登录
                 </Button>
               </Col>
             </Row>
           
           </Header>
-          <Content style={{ padding: '0px'}}>
+          <Content style={{ padding: '0px',height:'1200px'}}>
             <Component {...pageProps} />
           </Content>
           <Footer style={{ display:'flex', flexDirection:'row', justifyContent:'space-between',zIndex:1, backgroundColor:'white' }}>
